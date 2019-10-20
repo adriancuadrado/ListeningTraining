@@ -6,8 +6,6 @@ import {
 
 import Sound from './modules/Sound';
 
-Sound.setUrl('https://www.wordreference.com/audio/en/us/us/en042667.mp3');
-
 class App extends Component {
 
   state: any;
@@ -15,6 +13,23 @@ class App extends Component {
   constructor(props : any) {
     super(props);
     this.state = {word:''};
+    Sound.setUrl('https://www.wordreference.com/audio/en/us/us/en042667.mp3');
+  }
+
+  loadRandomWord(){
+    fetch(
+      "http://watchout4snakes.com/wo4snakes/Random/RandomWord",
+      {
+        "method":"POST",
+        "mode":"cors"
+      }
+    )
+    .then((resp)=>resp.text())
+    .then((text) => {
+      this.setState({
+        word : text
+      });
+    });
   }
   
   render() {
@@ -22,19 +37,7 @@ class App extends Component {
       <>
         <Button title='Prueba' onPress={()=>{
           Sound.play();
-          fetch(
-            "http://watchout4snakes.com/wo4snakes/Random/RandomWord",
-            {
-              "method":"POST",
-              "mode":"cors"
-            }
-          )
-          .then((resp)=>resp.text())
-          .then((text) => {
-            this.setState({
-              word : text
-            });
-          });
+          this.loadRandomWord();
         }}/>
         <Text>{this.state.word}</Text>
       </>
