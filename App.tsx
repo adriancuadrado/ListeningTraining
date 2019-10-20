@@ -30,7 +30,7 @@ class App extends Component {
             }
           ).then((resp)=>{
             this.setState({
-              word : resp.text
+              word : resp.text()
             });
           });
         }}/>
