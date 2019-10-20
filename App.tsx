@@ -29,9 +29,11 @@ class App extends Component {
               "mode":"cors"
             }
           ).then((resp)=>{
-            this.setState({
-              word : resp.text()
-            });
+            resp.text().then((text) => {
+              this.setState({
+                word : resp.text()
+              });
+            })
           });
         }}/>
         <Text>{this.state.word}</Text>
