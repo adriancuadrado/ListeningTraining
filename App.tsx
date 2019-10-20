@@ -1,23 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Button
+  Button,
+  Text
 } from 'react-native';
 
 import Sound from './modules/Sound';
 
 Sound.setUrl('https://www.wordreference.com/audio/en/us/us/en042667.mp3');
 
-const App = () => {
-  return (
-    <Button title='Prueba' onPress={()=>{
-      Sound.play()
-    }}/>
-  );
-};
+class App extends Component {
 
-const styles = StyleSheet.create({
-
-});
+  constructor(props : any) {
+    super(props);
+    this.state = {word:''};
+  }
+  
+  render() {
+    return (
+      <Button title='Prueba' onPress={()=>{
+        Sound.play();
+        fetch(
+          "http://watchout4snakes.com/wo4snakes/Random/RandomWord",
+          {
+            "method":"POST",
+            "mode":"cors"
+          }
+        ).then((word)=>{
+          this.setState({
+            word
+          });
+        });
+      }}/>
+      <Text>{this.state.word}</Text>
+    );
+  };
+}
 
 export default App;
