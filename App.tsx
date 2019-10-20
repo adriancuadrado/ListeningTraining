@@ -31,7 +31,7 @@ class App extends Component {
           ).then((resp)=>{
             resp.text().then((text) => {
               this.setState({
-                word : resp.text()
+                word : text
               });
             })
           });
