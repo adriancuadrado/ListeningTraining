@@ -34,7 +34,9 @@ class App extends Component {
             });
           });
         }}/>
-        <Text>{this.state.word}</Text>
+        <Text>{
+          JSON.stringify(this.state.word)
+        }</Text>
       </>
     );
   };
