@@ -10,6 +10,8 @@ Sound.setUrl('https://www.wordreference.com/audio/en/us/us/en042667.mp3');
 
 class App extends Component {
 
+  state: any;
+
   constructor(props : any) {
     super(props);
     this.state = {word:''};
@@ -17,21 +19,23 @@ class App extends Component {
   
   render() {
     return (
-      <Button title='Prueba' onPress={()=>{
-        Sound.play();
-        fetch(
-          "http://watchout4snakes.com/wo4snakes/Random/RandomWord",
-          {
-            "method":"POST",
-            "mode":"cors"
-          }
-        ).then((word)=>{
-          this.setState({
-            word
+      <>
+        <Button title='Prueba' onPress={()=>{
+          Sound.play();
+          fetch(
+            "http://watchout4snakes.com/wo4snakes/Random/RandomWord",
+            {
+              "method":"POST",
+              "mode":"cors"
+            }
+          ).then((word)=>{
+            this.setState({
+              word
+            });
           });
-        });
-      }}/>
-      <Text>{this.state.word}</Text>
+        }}/>
+        <Text>{this.state.word}</Text>
+      </>
     );
   };
 }
