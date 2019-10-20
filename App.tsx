@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Dimensions
+  // Dimensions
 } from 'react-native';
 
 import Sound from './modules/Sound';
@@ -15,18 +15,18 @@ class App extends Component {
 
   constructor(props : any) {
     super(props);
-    let size = Dimensions.get('screen');
+    // let size = Dimensions.get('screen');
     this.state = {
       word:'',
       isVisible: false,
-      isVertical: size.height > size.width
+      // isVertical: size.height > size.width
     };
-    Dimensions.addEventListener('change', ()=>{
-      let size = Dimensions.get('screen');
-      this.setState({
-        isVertical: size.height > size.width
-      });
-    });
+    // Dimensions.addEventListener('change', ()=>{
+    //   let size = Dimensions.get('screen');
+    //   this.setState({
+    //     isVertical: size.height > size.width
+    //   });
+    // });
     this.loadRandomWord();
   }
 
