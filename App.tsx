@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Button,
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from 'react-native';
 
 import Sound from './modules/Sound';
@@ -15,10 +15,18 @@ class App extends Component {
 
   constructor(props : any) {
     super(props);
+    let size = Dimensions.get('screen');
     this.state = {
       word:'',
-      isVisible: false
+      isVisible: false,
+      isVertical: size.height > size.width
     };
+    Dimensions.addEventListener('change', ()=>{
+      let size = Dimensions.get('screen');
+      this.setState({
+        isVertical: size.height > size.width
+      });
+    });
     this.loadRandomWord();
   }
 
@@ -31,7 +39,6 @@ class App extends Component {
   }
 
   loadRandomWord(){
-    this.toggleWordVisibility();
     fetch(
       'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
       {
@@ -49,7 +56,9 @@ class App extends Component {
         if(audio) {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
         } else {
-          throw 'No se ha podido recuperar el nombre del archivo de audio';
+          //No siempre tiene wordreference audio para todas las palabras.
+          //Cuando se da el extraordinario caso de que sea asi, simplemente cargamos otra palabra al azar
+          this.loadRandomWord();
         }
       });
     });
@@ -58,10 +67,12 @@ class App extends Component {
   render() {
     return (
       <>
-        <View style={style.layout}>
+        <View style={[style.layout, {flexGrow: 1}]}>
           <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
         </View>
-        <TouchableOpacity style={[style.layout, style.button]} onPress={()=>{this.toggleWordVisibility()}}>
+        <TouchableOpacity style={[style.layout, style.button]} onPress={()=>{
+          this.toggleWordVisibility();
+        }}>
           <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[style.layout, style.button]} onPress={()=>{
@@ -71,6 +82,7 @@ class App extends Component {
         </TouchableOpacity>
         <TouchableOpacity style={[style.layout, style.button]} onPress={()=>{
           this.loadRandomWord();
+          this.setState({isVisible: false});
         }}>
           <Text style={style.text}>CAMBIAR</Text>
         </TouchableOpacity>
@@ -91,7 +103,7 @@ const style = StyleSheet.create({
 
   button: {
     color: 'white',
-    backgroundColor: '#3e76dd',
+    backgroundColor: '#3e76dd'
   },
 
   text: {
