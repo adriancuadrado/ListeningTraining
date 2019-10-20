@@ -17,8 +17,6 @@ public class SoundModule extends ReactContextBaseJavaModule {
 
     public SoundModule(@NonNull ReactApplicationContext reactContext) {
         super(reactContext);
-        this.mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
     }
 
     @NonNull
@@ -30,10 +28,12 @@ public class SoundModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setUrl(String url){
         try {
+            this.mediaPlayer = new MediaPlayer();
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mediaPlayer.setDataSource(url);
             mediaPlayer.prepare();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
