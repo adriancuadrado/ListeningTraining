@@ -28,15 +28,13 @@ class App extends Component {
               "method":"POST",
               "mode":"cors"
             }
-          ).then((word)=>{
+          ).then((resp)=>{
             this.setState({
-              word
+              word : resp.text
             });
           });
         }}/>
-        <Text>{
-          JSON.stringify(this.state.word)
-        }</Text>
+        <Text>{this.state.word}</Text>
       </>
     );
   };
