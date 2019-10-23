@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  // Dimensions
+  Dimensions
 } from 'react-native';
 
 import Sound from './native_modules/Sound';
@@ -15,19 +15,19 @@ class App extends Component {
 
   constructor(props : any) {
     super(props);
-    // // // // // // // // // // // // // // // // // // let size = Dimensions.get('screen');
+    // // // // // // // // // // // // // // let size = Dimensions.get('screen');
     this.state = {
       word:'',
       isVisible: false,
       isWordLoaded: false,
-      // // // // // // // // // // // // // // // // // // isVertical: size.height > size.width
+      // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
-    // // // // // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
-    // // // // // // // // // // // // // // // // //   let size = Dimensions.get('screen');
-    // // // // // // // // // // // // // // // // //   this.setState({
-    // // // // // // // // // // // // // // // // //     isVertical: size.height > size.width
-    // // // // // // // // // // // // // // // // //   });
-    // // // // // // // // // // // // // // // // // });
+    // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
+    // // // // // // // // // // // // //   let size = Dimensions.get('screen');
+    // // // // // // // // // // // // //   this.setState({
+    // // // // // // // // // // // // //     isVertical: size.height > size.width
+    // // // // // // // // // // // // //   });
+    // // // // // // // // // // // // // });
     Sound.setOnPreparedListener(()=>{
       this.setState({
         isWordLoaded: true,
@@ -60,8 +60,8 @@ class App extends Component {
         if(audio) {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
         } else {
-          // // // // // // // // // // // // // // // // //No siempre tiene wordreference audio para todas las palabras.
-          // // // // // // // // // // // // // // // // //Cuando se da el extraordinario caso de que sea asi, simplemente cargamos otra palabra al azar
+          // // // // // // // // // // // // //No siempre tiene wordreference audio para todas las palabras.
+          // // // // // // // // // // // // //Cuando se da el extraordinario caso de que sea asi, simplemente cargamos otra palabra al azar
           this.loadRandomWord();
         }
       });
