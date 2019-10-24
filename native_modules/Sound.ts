@@ -1,9 +1,7 @@
 import { NativeEventEmitter, NativeModules } from "react-native";
 
-const eventEmitter = new NativeEventEmitter(NativeModules.Sound);
-
 NativeModules.Sound.setOnPreparedListener = (callback: () => void) => {
-    eventEmitter.addListener(
+    new NativeEventEmitter(NativeModules.Sound).addListener(
         NativeModules.Sound.EVENT__SOUND_MODULE__ON_PREPARED,
         () => callback()
     );
