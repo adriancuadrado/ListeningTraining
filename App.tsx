@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NativeEventEmitter, NativeModules } from "react-native";
 import {
   View,
   Text,
@@ -28,12 +29,16 @@ class App extends Component {
     // // // // // // // // // // // // //     isVertical: size.height > size.width
     // // // // // // // // // // // // //   });
     // // // // // // // // // // // // // });
-    Sound.setOnPreparedListener(()=>{
-      console.log("XXX");
-      this.setState({
-        isWordLoaded: true,
-      });
-    });
+    // Sound.setOnPreparedListener(()=>{
+    //   console.log("XXX");
+    //   this.setState({
+    //     isWordLoaded: true,
+    //   });
+    // });
+    new NativeEventEmitter(NativeModules.Sound).addListener(
+      NativeModules.Sound.EVENT__SOUND_MODULE__ON_PREPARED,
+      () => callback()
+    );
   }
 
   componentDidMount(){
