@@ -30,7 +30,6 @@ class App extends Component {
     // // // // // // // // // // // // //   });
     // // // // // // // // // // // // // });
     Sound.setOnPreparedListener(()=>{
-      console.log("XXX");
       this.setState({
         isWordLoaded: true,
       });
