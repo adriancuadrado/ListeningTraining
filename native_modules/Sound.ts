@@ -4,7 +4,7 @@ const eventEmitter = new NativeEventEmitter(NativeModules.Sound);
 
 NativeModules.Sound.setOnPreparedListener = (callback: () => void) => {
     eventEmitter.addListener(
-        NativeModules.SoundEVENT__SOUND_MODULE__ON_PREPARED,
+        NativeModules.Sound.EVENT__SOUND_MODULE__ON_PREPARED,
         () => callback()
     );
 };
