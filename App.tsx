@@ -29,16 +29,12 @@ class App extends Component {
     // // // // // // // // // // // // //     isVertical: size.height > size.width
     // // // // // // // // // // // // //   });
     // // // // // // // // // // // // // });
-    // Sound.setOnPreparedListener(()=>{
-    //   console.log("XXX");
-    //   this.setState({
-    //     isWordLoaded: true,
-    //   });
-    // });
-    new NativeEventEmitter(NativeModules.Sound).addListener(
-      NativeModules.Sound.EVENT__SOUND_MODULE__ON_PREPARED,
-      () => callback()
-    );
+    Sound.setOnPreparedListener(()=>{
+      console.log("XXX");
+      this.setState({
+        isWordLoaded: true,
+      });
+    });
   }
 
   componentDidMount(){
