@@ -5,6 +5,7 @@
 - Botones para indicar si acertaste o fallaste la palabra para poder implementar dificultad
 - Menu de configuracion en el que seleccionar idiomas (el que hablas y el que quieras aprender)
 - Añadir configuracion para preproducir automaticamente al presionar el boton CAMBIAR
+- Cambiar el layout al girar la pantalla
 - Mejorar la manera en la que se añaden eventos con los modulos nativos:
 
     Ahora mismo hay que hacer lo siguiente:
