@@ -30,12 +30,12 @@ class App extends Component {
     // // // // // // // // // // // // //     isVertical: size.height > size.width
     // // // // // // // // // // // // //   });
     // // // // // // // // // // // // // });
-    Sound.setOnPreparedListener(()=>{
+    Sound.addOnPreparedListener(()=>{
       this.setState({
         isWordLoaded: true,
       });
     });
-    Sound.setOnCompletionListener(()=>{
+    Sound.addOnCompletionListener(()=>{
       this.setState({
         isReproducingAudio: false,
       });
