@@ -1,0 +1,28 @@
+En primer lugar, este proyecto no se creó usando la utilidad de comandos react-native de facebook, sino la
+de la comunidad de react-native: @react-native-community/cli . Este es el enlace de github del repositorio
+de la utilidad de linea de comandos: https://github.com/react-native-community/cli
+
+La razon por la que usé esa versión es basicamente porque con ella se generaba el archivo App con extension
+.tsx en vez de .js , lo que me parecio bastante conveniente porque asi podria trabajar mas comodamente con
+typescript sin que me detectara errores donde no los habia. (Aunque el proyecto compila perfectamente, me
+aparecia un error porque el nombre de la extension de archivo debia de ser .tsx en vez de .js).
+
+App.tsx es el punto de entrada a la aplicación, y es el archivo que contiene el codigo de la primera (y de momento
+la única) pantalla que aparece en la aplicación. En el componente App hago uso del siguiente state:
+
+this.state = {
+    word:'',
+    isVisible: false,
+    isWordLoaded: false,
+    isReproducingAudio: false,
+};
+
+-word
+    Esta es la palabra que el usuario debe intentar adivinar presionando el boton 'ESCUCHAR' de la aplicación.
+-isVisible
+    Indica si la palabra se está mostrando o no.
+-isWordLoaded
+    Indica no solo si se ha cargado la palabra del servidor del que se obtienen palabras aleatorias, también
+    indica si se ha cargado su audio en el dispositivo y esta listo para ser reproducido.
+-isReproducingAudio
+    Indica si el audio esta reproduciendose. Se utiliza fundamentalmente para desactivar el boton ''

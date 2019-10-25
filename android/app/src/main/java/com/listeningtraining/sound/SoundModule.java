@@ -18,6 +18,7 @@ import java.util.Map;
 public class SoundModule extends ReactContextBaseJavaModule {
 
     public static final String EVENT__SOUND_MODULE__ON_PREPARED = "EVENT__SOUND_MODULE__ON_PREPARED";
+    public static final String EVENT__SOUND_MODULE__ON_COMPLETION = "EVENT__SOUND_MODULE__ON_COMPLETION";
 
     private ReactApplicationContext reactContext;
 
@@ -33,6 +34,11 @@ public class SoundModule extends ReactContextBaseJavaModule {
                     .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit(EVENT__SOUND_MODULE__ON_PREPARED, null);
         });
+        mediaPlayer.setOnCompletionListener(mp -> {
+            reactContext
+                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit(EVENT__SOUND_MODULE__ON_COMPLETION, null);
+        });
     }
 
     @Nullable
@@ -40,6 +46,7 @@ public class SoundModule extends ReactContextBaseJavaModule {
     public Map<String, Object> getConstants() {
         Map<String, Object> constants = new HashMap<>();
         constants.put(EVENT__SOUND_MODULE__ON_PREPARED, EVENT__SOUND_MODULE__ON_PREPARED);
+        constants.put(EVENT__SOUND_MODULE__ON_COMPLETION, EVENT__SOUND_MODULE__ON_COMPLETION);
         return constants;
     }
 
@@ -62,6 +69,7 @@ public class SoundModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void play() {
+        mediaPlayer.seekTo(0);
         mediaPlayer.start();
     }
 }

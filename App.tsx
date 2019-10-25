@@ -21,6 +21,7 @@ class App extends Component {
       word:'',
       isVisible: false,
       isWordLoaded: false,
+      isReproducingAudio: false,
       // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
     // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
@@ -32,6 +33,11 @@ class App extends Component {
     Sound.setOnPreparedListener(()=>{
       this.setState({
         isWordLoaded: true,
+      });
+    });
+    Sound.setOnCompletionListener(()=>{
+      this.setState({
+        isReproducingAudio: false,
       });
     });
   }
@@ -61,8 +67,8 @@ class App extends Component {
         if(audio) {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
         } else {
-          // // // // // // // // // // // // //No siempre tiene wordreference audio para todas las palabras.
-          // // // // // // // // // // // // //Cuando se da el extraordinario caso de que sea asi, simplemente cargamos otra palabra al azar
+          //No siempre tiene wordreference audio para todas las palabras.
+          //Cuando se da el extraordinario caso de que sea asi, simplemente cargamos otra palabra al azar
           this.loadRandomWord();
         }
       });
@@ -76,6 +82,11 @@ class App extends Component {
       }
     });
   }
+
+  playSound(){
+    this.setState({isReproducingAudio: true});
+    Sound.play();
+  }
   
   render() {
     return (
@@ -83,17 +94,17 @@ class App extends Component {
         <View style={[style.layout, {flexGrow: 1}]}>
           <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
         </View>
-        <TouchableOpacity style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
+        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
           this.toggleWordVisibility();
         }}>
           <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
-          Sound.play();
+        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
+          this.playSound();
         }}>
           <Text style={style.text}>ESCUCHAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
+        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
           this.loadRandomWord();
           this.setState({isVisible: false});
         }}>
