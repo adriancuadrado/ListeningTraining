@@ -22,7 +22,7 @@ export default class ErrorPopup extends Popup {
       <>
         <View style={style.view}>
           <Text style={style.text}>
-            Error de conexion.
+            Error de conexion. {'\n'}
             Por favor compruebe su conexion a internet.
           </Text>
         </View>
