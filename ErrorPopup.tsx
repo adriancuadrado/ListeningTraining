@@ -51,7 +51,7 @@ const style = StyleSheet.create({
     bottom: 0,
     right: 0,
     backgroundColor: '#00000088',
-  }
+  },
 
   text: {
     color: 'white',
