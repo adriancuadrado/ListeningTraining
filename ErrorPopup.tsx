@@ -27,7 +27,7 @@ export default class ErrorPopup extends Popup {
             Error de conexion{'\n\n'}
             Por favor compruebe su conexion a internet{'\n'}
           </Text>
-          <TouchableOpacity style={{}} onPress={()=>{}}>
+          <TouchableOpacity style={style.button} onPress={()=>{}}>
             <Text>Reintentar</Text>
           </TouchableOpacity>
         </View>
