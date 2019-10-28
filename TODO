@@ -8,6 +8,8 @@
 - Cambiar el layout al girar la pantalla
 - Añadir boton para compartir aplicacion
 - Comprobar si hay conexion a internet y mostrar un emnsaje de error en caso de que no lo haya
+- El popup de error tiene un boton "Reintentar" que llama al metodo "loadRandomWord()" para volver a
+intentar cargar la palabra. Si no se carga aparecera el popup de nuevo.
 - Mejorar la manera en la que se añaden eventos con los modulos nativos:
 
     Ahora mismo hay que hacer lo siguiente:
