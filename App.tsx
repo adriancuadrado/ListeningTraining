@@ -50,17 +50,19 @@ class App extends Component {
     this.setState({
       isWordLoaded: false,
     });
-    let promise: Promise<Response> = fetch(
+    let promise : Promise<Response> = fetch(
       'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
       {
         'method':'POST',
         'mode':'cors'
       }
     );
-    promise.then((resp)=>resp.text())
+    promise
+    .then((resp)=>resp.text())
     .then((word)=>{
       this.setState({word});
-      promise = fetch(`https://www.wordreference.com/es/translation.asp?tranword=${word}`)
+      let promise : Promise<Response> = fetch(`https://www.wordreference.com/es/translation.asp?tranword=${word}`);
+      promise
       .then((resp)=>resp.text())
       .then(html=>{
         let audio = /<audio id='aud0' preload='none'><source src='(.*?)' type='audio\/mpeg'><\/audio>/.exec(html);
@@ -71,13 +73,13 @@ class App extends Component {
           //Cuando se da el caso cargamos otra palabra al azar.
           this.loadRandomWord();
         }
-      })
-      .catch((ex) => {
-        console.log(ex);
+      });
+      promise.catch((ex) => {
+        console.error(ex);
       });
     });
     promise.catch((ex)=>{
-      console.log(ex);
+      console.error(ex);
     });
   }
 
