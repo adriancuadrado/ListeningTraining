@@ -35,6 +35,6 @@ const style = StyleSheet.create({
 
   text: {
     color: 'white',
-    fontSize: '25',
+    fontSize: 25,
   }
 });
