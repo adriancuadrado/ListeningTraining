@@ -3,6 +3,7 @@ import Popup from './Popup';
 import {
   View,
   Text,
+  Button,
   StyleSheet,
 } from 'react-native';
 
@@ -25,6 +26,7 @@ export default class ErrorPopup extends Popup {
             Error de conexion{'\n\n'}
             Por favor compruebe su conexion a internet
           </Text>
+          <Button title='Reintentar' onPress={()=>{}} />
         </View>
       </>
     );
