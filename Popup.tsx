@@ -27,7 +27,6 @@ const style = StyleSheet.create({
   popup: {
     position: 'absolute',
     padding: 20,
-    backgroundColor: 'red',
   },
 
   shadow: {
