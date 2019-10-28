@@ -75,11 +75,11 @@ class App extends Component {
         }
       });
       promise.catch((ex) => {
-        console.error(ex);
+        // console.error(ex);
       });
     });
     promise.catch((ex)=>{
-      console.error(ex);
+      // console.error(ex);
     });
   }
 
