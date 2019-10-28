@@ -28,7 +28,7 @@ export default class ErrorPopup extends Popup {
             Por favor compruebe su conexion a internet{'\n'}
           </Text>
           <TouchableOpacity style={style.button} onPress={()=>{}}>
-            <Text style={style.text}>Reintentar</Text>
+            <Text style={[style.text, style.textButton]}>Reintentar</Text>
           </TouchableOpacity>
         </View>
       </>
@@ -52,5 +52,9 @@ const style = StyleSheet.create({
     color: 'white',
     backgroundColor: 'gray',
     padding: 15,
+  },
+
+  textButton: {
+    justifyContent: 'center',
   }
 });
