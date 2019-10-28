@@ -18,6 +18,23 @@ export default class ErrorPopup extends Popup {
   }
 
   render(){
-    return <></>;
+    return (
+      <>
+        <View style={style.view}>
+          <Text style={style.text}></Text>
+        </View>
+      </>
+    );
   }
 }
+
+const style = StyleSheet.create({
+  view: {
+    backgroundColor: 'red',
+  },
+
+  text: {
+    color: 'white',
+    fontSize: '25',
+  }
+});
