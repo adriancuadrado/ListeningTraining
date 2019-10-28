@@ -68,7 +68,7 @@ class App extends Component {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
         } else {
           //No siempre tiene wordreference audio para todas las palabras.
-          //Cuando se da el caso, simplemente cargamos otra palabra al azar
+          //Cuando se da el caso cargamos otra palabra al azar
           this.loadRandomWord();
         }
       });
