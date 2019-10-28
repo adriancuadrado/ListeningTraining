@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-class ErrorPopup extends Popup {
+export default class ErrorPopup extends Popup {
   render(){
     return <></>;
   }
