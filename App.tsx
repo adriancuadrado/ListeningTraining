@@ -24,6 +24,7 @@ class App extends Component {
       isVisible: false,
       isWordLoaded: false,
       isReproducingAudio: false,
+      errorMessage: '',
       // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
     // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
@@ -120,7 +121,7 @@ class App extends Component {
         }}>
           <Text style={style.text}>CAMBIAR</Text>
         </TouchableOpacity>
-        <ErrorPopup message={this.state.errorMessage} visible={this.state.errorMessage != ""} />
+        <ErrorPopup message={this.state.errorMessage} visible={this.state.errorMessage != ''} />
       </>
     );
   };
