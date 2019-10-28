@@ -71,6 +71,9 @@ class App extends Component {
           //Cuando se da el caso cargamos otra palabra al azar.
           this.loadRandomWord();
         }
+      })
+      .catch((ex) => {
+        console.log(ex);
       });
     });
   }
