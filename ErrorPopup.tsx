@@ -9,6 +9,19 @@ import {
 } from 'react-native';
 
 export default class ErrorPopup extends Popup {
+  getPopupContents(): any {
+    return (
+      <>
+        <Text style={style.text}>
+          Error de conexion{'\n\n'}
+          Por favor compruebe su conexion a internet{'\n'}
+        </Text>
+        <TouchableOpacity style={style.button} onPress={()=>{}}>
+          <Text style={[style.text, style.textButton]}>Reintentar</Text>
+        </TouchableOpacity>
+      </>
+    );
+  }
 
   constructor(
     public props: Readonly<{
@@ -17,23 +30,6 @@ export default class ErrorPopup extends Popup {
     }>
   ){
     super(props);
-  }
-
-  render(){
-    return (
-      <>
-        <View style={style.shadow}/>
-        <View style={style.popup}>
-          <Text style={style.text}>
-            Error de conexion{'\n\n'}
-            Por favor compruebe su conexion a internet{'\n'}
-          </Text>
-          <TouchableOpacity style={style.button} onPress={()=>{}}>
-            <Text style={[style.text, style.textButton]}>Reintentar</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    );
   }
 }
 
