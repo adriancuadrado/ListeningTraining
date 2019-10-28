@@ -10,6 +10,16 @@ import {
 
 export default class ErrorPopup extends Popup {
 
+  constructor(
+    public props: Readonly<{
+      message: string,
+      visible: boolean,
+      onPressReintentar: ()=> void
+    }>
+  ){
+    super(props);
+  }
+
   getPopupContents(): any {
     return (
       <>
@@ -17,7 +27,7 @@ export default class ErrorPopup extends Popup {
           Error de conexion{'\n\n'}
           Por favor compruebe su conexion a internet{'\n'}
         </Text>
-        <TouchableOpacity style={style.button} onPress={()=>{}}>
+        <TouchableOpacity style={style.button} onPress={()=>{this.props.onPressReintentar()}}>
           <Text style={[style.text, style.textButton]}>Reintentar</Text>
         </TouchableOpacity>
       </>
@@ -28,15 +38,6 @@ export default class ErrorPopup extends Popup {
     return {
       backgroundColor: 'red',
     }
-  }
-
-  constructor(
-    public props: Readonly<{
-      message: string,
-      visible: boolean
-    }>
-  ){
-    super(props);
   }
 }
 

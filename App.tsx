@@ -71,6 +71,7 @@ class App extends Component {
         let audio = /<audio id='aud0' preload='none'><source src='(.*?)' type='audio\/mpeg'><\/audio>/.exec(html);
         if(audio) {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
+          this.setState({errorMessage: ''});
         } else {
           //No siempre tiene wordreference audio para todas las palabras.
           //Cuando se da el caso cargamos otra palabra al azar.
@@ -78,11 +79,13 @@ class App extends Component {
         }
       });
       promise.catch((ex) => {
-        // console.error(ex);
+        //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
+        this.setState({errorMessage: 'X'});
       });
     });
     promise.catch((ex)=>{
-      // console.error(ex);
+        //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
+        this.setState({errorMessage: 'X'});
     });
   }
 
@@ -121,7 +124,8 @@ class App extends Component {
         }}>
           <Text style={style.text}>CAMBIAR</Text>
         </TouchableOpacity>
-        <ErrorPopup message={this.state.errorMessage} visible={this.state.errorMessage != ''} />
+        {/* FIXME: onPressReintentar no deberia de existir, deberia de usar el metodo desde aqui en vez de pasarlo */}
+        <ErrorPopup message={this.state.errorMessage} visible={this.state.errorMessage != ''} onPressReintentar={()=>{this.loadRandomWord()}}/>
       </>
     );
   };
