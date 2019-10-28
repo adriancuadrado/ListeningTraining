@@ -51,10 +51,10 @@ const style = StyleSheet.create({
   button: {
     color: 'white',
     backgroundColor: 'gray',
-    justifyContent: 'center',
     padding: 15,
   },
 
   textButton: {
+    textAlign: "center",
   }
 });
