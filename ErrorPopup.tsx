@@ -39,7 +39,6 @@ const style = StyleSheet.create({
     left: viewMargin,
     top: viewMargin,
     right: viewMargin,
-    bottom: viewMargin,
     borderRadius: 50,
     backgroundColor: 'red',
   },
