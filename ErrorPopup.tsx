@@ -7,6 +7,11 @@ import {
 } from 'react-native';
 
 export default class ErrorPopup extends Popup {
+
+  constructor(public props: Readonly<{}>){
+    super(props);
+  }
+
   render(){
     return <></>;
   }
