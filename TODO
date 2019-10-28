@@ -7,6 +7,7 @@
 - Añadir configuracion para preproducir automaticamente al presionar el boton CAMBIAR
 - Cambiar el layout al girar la pantalla
 - Añadir boton para compartir aplicacion
+- Comprobar si hay conexion a internet y mostrar un emnsaje de error en caso de que no lo haya
 - Mejorar la manera en la que se añaden eventos con los modulos nativos:
 
     Ahora mismo hay que hacer lo siguiente:
