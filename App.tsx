@@ -101,6 +101,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <ErrorPopup message={this.state.errorMessage} visible={this.state.errorMessage != ""} />
         <View style={[style.layout, {flexGrow: 1}]}>
           <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
         </View>
