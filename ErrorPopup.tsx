@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Button,
+  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
@@ -26,7 +27,9 @@ export default class ErrorPopup extends Popup {
             Error de conexion{'\n\n'}
             Por favor compruebe su conexion a internet{'\n'}
           </Text>
-          <Button title='Reintentar' onPress={()=>{}} />
+          <TouchableOpacity style={{}} onPress={()=>{}}>
+            <Text>Reintentar</Text>
+          </TouchableOpacity>
         </View>
       </>
     );
@@ -43,5 +46,10 @@ const style = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 25,
+  },
+
+  button: {
+    color: 'white',
+    backgroundColor: 'gray',
   }
 });
