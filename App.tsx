@@ -10,6 +10,8 @@ import {
 
 import Sound from './native_modules/Sound';
 
+import ErrorPopup from './ErrorPopup';
+
 class App extends Component {
 
   state: any;
