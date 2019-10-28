@@ -13,7 +13,6 @@ export default class ErrorPopup extends Popup {
   constructor(
     public props: Readonly<{
       message: string,
-      visible: boolean,
       onPressReintentar: ()=> void
     }>
   ){
