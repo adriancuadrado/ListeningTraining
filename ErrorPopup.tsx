@@ -34,7 +34,6 @@ export default class ErrorPopup extends Popup {
 const style = StyleSheet.create({
   view: {
     position: 'absolute',
-    // top: 0,
     backgroundColor: 'red',
   },
 
