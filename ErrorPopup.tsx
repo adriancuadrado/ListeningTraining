@@ -31,15 +31,10 @@ export default class ErrorPopup extends Popup {
   }
 }
 
-const viewMargin = 50;
-
 const style = StyleSheet.create({
   view: {
     position: 'absolute',
-    left: viewMargin,
-    top: viewMargin,
-    right: viewMargin,
-    borderRadius: 50,
+    top: 0,
     backgroundColor: 'red',
   },
 
