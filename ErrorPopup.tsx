@@ -8,7 +8,10 @@ import {
 
 export default class ErrorPopup extends Popup {
 
-  constructor(public props: Readonly<{}>){
+  constructor(public props: Readonly<{
+    message: string,
+    visible: boolean
+  }>){
     super(props);
   }
 
