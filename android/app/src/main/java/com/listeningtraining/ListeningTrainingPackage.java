@@ -6,6 +6,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
+import com.listeningtraining.network.NetworkModule;
 import com.listeningtraining.sound.SoundModule;
 
 import java.util.Arrays;
@@ -17,7 +18,8 @@ public class ListeningTrainingPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
         return Arrays.asList(
-                new SoundModule(reactContext)
+                new SoundModule(reactContext),
+                new NetworkModule(reactContext)
         );
     }
 
