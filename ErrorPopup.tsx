@@ -40,7 +40,7 @@ const style = StyleSheet.create({
     top: viewMargin,
     right: viewMargin,
     bottom: viewMargin,
-    borderRadius: 10,
+    borderRadius: 50,
     backgroundColor: 'red',
   },
 
