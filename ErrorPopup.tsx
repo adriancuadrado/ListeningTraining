@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import Popup from './Popup';
 import {
   View,
