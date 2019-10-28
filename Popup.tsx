@@ -9,10 +9,12 @@ export default abstract class Popup extends Component {
 
   abstract getPopupContents() : any;
 
+  abstract getPopupStyle(): any;
+
   render(){
     return (
       <>
-        <View style={style.shadow}/>
+        <View style={[style.shadow, this.getPopupStyle()]}/>
         <View style={style.popup}>
           {this.getPopupContents()}
         </View>
