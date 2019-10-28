@@ -7,7 +7,7 @@ import {
 
 export default abstract class Popup extends Component {
 
-  abstract getPopupContents() : any;
+  abstract getPopupContents(): any;
 
   abstract getPopupStyle(): any;
 
