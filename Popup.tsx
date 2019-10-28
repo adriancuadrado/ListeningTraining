@@ -14,8 +14,8 @@ export default abstract class Popup extends Component {
   render(){
     return (
       <>
-        <View style={[style.shadow, this.getPopupStyle()]}/>
-        <View style={style.popup}>
+        <View style={style.shadow}/>
+        <View style={[style.popup, this.getPopupStyle()]}>
           {this.getPopupContents()}
         </View>
       </>
