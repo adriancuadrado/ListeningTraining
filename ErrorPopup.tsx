@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 export default class ErrorPopup extends Popup {
+
   getPopupContents(): any {
     return (
       <>
@@ -21,6 +22,12 @@ export default class ErrorPopup extends Popup {
         </TouchableOpacity>
       </>
     );
+  }
+
+  getPopupStyle() {
+    return {
+      backgroundColor: 'red',
+    }
   }
 
   constructor(
