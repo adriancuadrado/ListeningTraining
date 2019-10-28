@@ -22,7 +22,8 @@ export default class ErrorPopup extends Popup {
   render(){
     return (
       <>
-        <View style={style.view}>
+        <View style={style.shadow}/>
+        <View style={style.popup}>
           <Text style={style.text}>
             Error de conexion{'\n\n'}
             Por favor compruebe su conexion a internet{'\n'}
@@ -37,11 +38,20 @@ export default class ErrorPopup extends Popup {
 }
 
 const style = StyleSheet.create({
-  view: {
+  popup: {
     position: 'absolute',
     padding: 20,
     backgroundColor: 'red',
   },
+
+  shadow: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#00000088',
+  }
 
   text: {
     color: 'white',
