@@ -156,6 +156,24 @@ class App extends Component {
                 </TouchableOpacity>
               </View>
             </>)}
+          {/* INSTRUCCIONES DE USO */}
+            {this.state.isNetworkError && (<>
+              <View style={style.popup_shadow}/>
+              <View style={[style.popup, style.info_popup]}>
+                <Text style={style.text}>
+                  Intenta adivinar la palabra a traves de su sonido{'\n\n'}
+                  Cuando quieras comprobar si has acertado, pulsa MOSTRAR{'\n'}
+                  Pulsa CAMBIAR para intentarlo de nuevo
+                </Text>
+                <TouchableOpacity
+                  style={style.error_popup_button}
+                  onPress={()=>{this.loadRandomWord()}}>
+                  <Text style={[style.text, style.error_popup_button_text]}>
+                    Entendido
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </>)}
       </>
     );
   };
@@ -217,6 +235,10 @@ const style = StyleSheet.create({
 
   error_popup_button_text: {
     textAlign: 'center',
+  },
+
+  info_popup: {
+    backgroundColor: '#5579bb',
   },
 });
 
