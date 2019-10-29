@@ -141,7 +141,7 @@ class App extends Component {
                 'mode':'cors'
               }
             )
-            .then(()=>{console.log("OK")})
+            .then((resp)=>resp.text())
             .catch(()=>{console.warn(":-(");});
 
 
