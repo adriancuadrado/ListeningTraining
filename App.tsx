@@ -136,7 +136,9 @@ class App extends Component {
             <Text style={style.text}>CAMBIAR</Text>
           </TouchableOpacity>
 
+
         {/* POPUPS */}
+
           {/* ERROR DE CONEXION */}
             {this.state.isNetworkError && (<>
               <View style={style.popup_shadow}/>
@@ -154,6 +156,7 @@ class App extends Component {
                 </TouchableOpacity>
               </View>
             </>)}
+            
           {/* INSTRUCCIONES DE USO */}
             {true && (<>
               <View style={style.popup_shadow}/>
