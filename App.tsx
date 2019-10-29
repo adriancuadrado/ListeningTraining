@@ -134,16 +134,16 @@ class App extends Component {
 
 
 
-            fetch(
-              'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
-              {
-                'method':'POST',
-                'mode':'cors'
-              }
-            )
-            .then((resp)=>resp.text())
-            
-            .catch(()=>{console.warn(":-(");});
+            // fetch(
+            //   'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
+            //   {
+            //     'method':'POST',
+            //     'mode':'cors'
+            //   }
+            // )
+            // .then((resp)=>resp.text())
+
+            // .catch(()=>{console.warn(":-(");});
 
 
 
