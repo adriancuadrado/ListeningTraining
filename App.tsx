@@ -131,6 +131,8 @@ class App extends Component {
         }}>
           <Text style={style.text}>CAMBIAR</Text>
         </TouchableOpacity>
+
+        {/* POPUPS */}
         {/* FIXME: onPressReintentar no deberia de existir, deberia de usar el metodo desde aqui en vez de pasarlo */}
         { this.state.errorMessage != '' && (<ErrorPopup message={this.state.errorMessage} onPressReintentar={()=>{this.loadRandomWord()}}/>) }
       </>
