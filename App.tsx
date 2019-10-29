@@ -166,7 +166,7 @@ class App extends Component {
                   Pulsa 'CAMBIAR' para intentarlo de nuevo{'\n\n'}
                 </Text>
                 <TouchableOpacity
-                  style={style.error_popup_button}
+                  style={style.button}
                   onPress={()=>{this.loadRandomWord()}}>
                   <Text style={[style.text, style.error_popup_button_text]}>
                     Entendido
