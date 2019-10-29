@@ -162,8 +162,8 @@ class App extends Component {
               <View style={[style.popup, style.info_popup]}>
                 <Text style={style.text}>
                   Intenta adivinar la palabra a traves de su sonido{'\n\n'}
-                  Cuando quieras comprobar si has acertado, pulsa MOSTRAR{'\n'}
-                  Pulsa CAMBIAR para intentarlo de nuevo
+                  Cuando quieras comprobar si has acertado, pulsa MOSTRAR{'\n\n'}
+                  Pulsa CAMBIAR para intentarlo de nuevo{'\n'}
                 </Text>
                 <TouchableOpacity
                   style={style.error_popup_button}
