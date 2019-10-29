@@ -195,8 +195,8 @@ const style = StyleSheet.create({
     borderStyle: 'solid',
     borderTopColor: 'lightblue',
     borderLeftColor: 'lightblue',
-    borderRightColor: 'black',
-    borderBottomColor: 'black',
+    borderRightColor: 'blue',
+    borderBottomColor: 'blue',
     borderWidth: 2,
   },
 
