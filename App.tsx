@@ -142,6 +142,7 @@ class App extends Component {
               }
             )
             .then((resp)=>resp.text())
+            
             .catch(()=>{console.warn(":-(");});
 
 
