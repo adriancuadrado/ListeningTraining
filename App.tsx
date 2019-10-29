@@ -49,7 +49,7 @@ class App extends Component {
     this.loadRandomWord();
   }
 
-  loadRandomWord(){
+  loadRandomWord(){this.setState({isWordLoaded: true,});
   //   this.setState({
   //     isWordLoaded: false,
   //   });
