@@ -24,7 +24,7 @@ class App extends Component {
       isVisible: false,
       isWordLoaded: false,
       isReproducingAudio: false,
-      errorMessage: '',
+      isNetworkError: false,
       // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
     // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
@@ -71,7 +71,7 @@ class App extends Component {
         let audio = /<audio id='aud0' preload='none'><source src='(.*?)' type='audio\/mpeg'><\/audio>/.exec(html);
         if(audio) {
           Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
-          this.setState({errorMessage: ''});
+          this.setState({isNetworkError: false});
         } else {
           //No siempre tiene wordreference audio para todas las palabras.
           //Cuando se da el caso cargamos otra palabra al azar.
@@ -80,12 +80,12 @@ class App extends Component {
       });
       promise.catch((ex) => {
         //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
-        this.setState({errorMessage: 'X'});
+        this.setState({isNetworkError: true});
       });
     });
     promise.catch((ex)=>{
         //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
-        this.setState({errorMessage: 'X'});
+        this.setState({isNetworkError: true});
     });
   }
 
