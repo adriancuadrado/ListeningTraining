@@ -148,7 +148,7 @@ class App extends Component {
                   Por favor compruebe su conexion a internet{'\n'}
                 </Text>
                 <TouchableOpacity
-                  style={style.error_popup_button}
+                  style={[style.button, style.error_popup_button]}
                   onPress={()=>{this.loadRandomWord()}}>
                   <Text style={[style.text, style.error_popup_button_text]}>
                     Reintentar
