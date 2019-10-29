@@ -250,6 +250,16 @@ const style = StyleSheet.create({
   info_popup: {
     backgroundColor: '#5579bb',
   },
+
+  info_popup_button: {
+    color: 'white',
+    backgroundColor: 'gray',
+    padding: 15,
+    borderTopColor: 'lightgray',
+    borderLeftColor: 'lightgray',
+    borderRightColor: 'black',
+    borderBottomColor: 'black',
+  },
 });
 
 export default App;
