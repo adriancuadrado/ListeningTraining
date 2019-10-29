@@ -116,7 +116,7 @@ class App extends Component {
             // this.toggleWordVisibility();
             fetch("htttp://www.google.com")
             .then(()=>{console.log("OK")})
-            .catch(()=>{console.error(":-(");});
+            .catch(()=>{console.warn(":-(");});
           }}>
             <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
           </TouchableOpacity>
