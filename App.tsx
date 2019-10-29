@@ -134,7 +134,21 @@ class App extends Component {
 
         {/* POPUPS */}
         {/* FIXME: onPressReintentar no deberia de existir, deberia de usar el metodo desde aqui en vez de pasarlo */}
-        { this.state.errorMessage != '' && (<ErrorPopup message={this.state.errorMessage} onPressReintentar={()=>{this.loadRandomWord()}}/>) }
+        <>
+          <View style={style.popup_shadow}/>
+          <View style={[style.popup, style.error_popup]}>
+            <>
+              <Text style={style.text}>
+                Error de conexion{'\n\n'}
+                Por favor compruebe su conexion a internet{'\n'}
+              </Text>
+              <TouchableOpacity style={style.error_popup_button} onPress={()=>{this.loadRandomWord()}}>
+                <Text style={[style.text, style.error_popup_button_text]}>Reintentar</Text>
+              </TouchableOpacity>
+            </>
+          </View>
+        </>
+        {/* { this.state.errorMessage != '' && (<ErrorPopup message={this.state.errorMessage} onPressReintentar={()=>{this.loadRandomWord()}}/>) } */}
       </>
     );
   };
@@ -168,7 +182,35 @@ const style = StyleSheet.create({
   word: {
     color: 'black',
     fontSize: 50,
-  }
+  },
+
+  popup: {
+    position: 'absolute',
+    padding: 20,
+  },
+
+  popup_shadow: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#00000088',
+  },
+
+  error_popup: {
+    backgroundColor: 'red',
+  },
+
+  error_popup_button: {
+    color: 'white',
+    backgroundColor: 'gray',
+    padding: 15,
+  },
+
+  error_popup_button_text: {
+    textAlign: 'center',
+  },
 });
 
 export default App;
