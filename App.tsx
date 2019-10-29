@@ -231,6 +231,7 @@ const style = StyleSheet.create({
     color: 'white',
     backgroundColor: 'gray',
     padding: 15,
+    borderStyle: 'outset'
   },
 
   error_popup_button_text: {
