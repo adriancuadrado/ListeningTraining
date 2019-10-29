@@ -175,7 +175,7 @@ class App extends Component {
                 <TouchableOpacity
                   style={[style.button, style.info_popup_button]}
                   onPress={()=>{
-                    AsyncStorage.setItem('hideInstructions', 'false');
+                    AsyncStorage.setItem('hideInstructions', 'true');
                     this.setState({
                       areInstructionsHidden: false,
                     });
