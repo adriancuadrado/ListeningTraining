@@ -79,12 +79,10 @@ class App extends Component {
         }
       });
       promise.catch((ex) => {
-        //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
         this.setState({isNetworkError: true});
       });
     });
     promise.catch((ex)=>{
-        //FIXME el error ya esta hardcodeado en ErrorPopup.tsx
         this.setState({isNetworkError: true});
     });
   }
@@ -115,7 +113,10 @@ class App extends Component {
             disabled={!this.state.isWordLoaded}
             style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
             onPress={()=>{
-            this.toggleWordVisibility();
+            // this.toggleWordVisibility();
+            fetch("htttp://www.google.com")
+            .then(()=>{console.log("OK")})
+            .catch(()=>{console.error(":-(");});
           }}>
             <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
           </TouchableOpacity>
