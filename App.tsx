@@ -10,8 +10,6 @@ import {
 
 import Sound from './native_modules/Sound';
 
-import ErrorPopup from './ErrorPopup';
-
 class App extends Component {
 
   state: any;
@@ -157,7 +155,7 @@ class App extends Component {
               </View>
             </>)}
           {/* INSTRUCCIONES DE USO */}
-          {true && (<>
+            {true && (<>
               <View style={style.popup_shadow}/>
               <View style={[style.popup, style.info_popup]}>
                 <Text style={style.text}>
