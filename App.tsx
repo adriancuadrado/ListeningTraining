@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NativeEventEmitter, NativeModules } from "react-native";
 import {
   View,
   Text,
@@ -7,6 +6,8 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Sound from './native_modules/Sound';
 
@@ -23,7 +24,7 @@ class App extends Component {
       isWordLoaded: false,
       isReproducingAudio: false,
       isNetworkError: false,
-      areInstructionsVisible: true,
+      areInstructionsHidden: true,
       // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
     // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
@@ -45,11 +46,15 @@ class App extends Component {
   }
 
   componentDidMount(){
+    AsyncStorage
+    .getItem('hideInstructions')
+    .then((areInstructionsHidden) => {
+      this.setState({areInstructionsHidden});
+    });
     this.loadRandomWord();
   }
 
   loadRandomWord(){
-    // this.setState({isWordLoaded: true,});
     this.setState({
       isWordLoaded: false,
     });
@@ -159,7 +164,7 @@ class App extends Component {
             </>)}
 
           {/* INSTRUCCIONES DE USO */}
-            {this.state.areInstructionsVisible && (<>
+            {!this.state.areInstructionsHidden && (<>
               <View style={style.popup_shadow}/>
               <View style={[style.popup, style.info_popup]}>
                 <Text style={style.text}>
@@ -169,9 +174,12 @@ class App extends Component {
                 </Text>
                 <TouchableOpacity
                   style={[style.button, style.info_popup_button]}
-                  onPress={()=>{this.setState({
-                    areInstructionsVisible: false,
-                  });}}>
+                  onPress={()=>{
+                    AsyncStorage.setItem('hideInstructions', 'false');
+                    this.setState({
+                      areInstructionsHidden: false,
+                    });
+                  }}>
                   <Text style={[style.text, style.error_popup_button_text]}>
                     Entendido
                   </Text>
