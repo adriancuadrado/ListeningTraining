@@ -191,7 +191,13 @@ const style = StyleSheet.create({
 
   button: {
     color: 'white',
-    backgroundColor: '#3e76dd'
+    backgroundColor: '#3e76dd',
+    borderStyle: 'solid',
+    borderTopColor: 'lightgray',
+    borderLeftColor: 'lightgray',
+    borderRightColor: 'black',
+    borderBottomColor: 'black',
+    borderWidth: 1,
   },
 
   disabled: {
@@ -231,12 +237,6 @@ const style = StyleSheet.create({
     color: 'white',
     backgroundColor: 'gray',
     padding: 15,
-    borderStyle: 'solid',
-    borderTopColor: 'lightgray',
-    borderLeftColor: 'lightgray',
-    borderRightColor: 'black',
-    borderBottomColor: 'black',
-    borderWidth: 1,
   },
 
   error_popup_button_text: {
