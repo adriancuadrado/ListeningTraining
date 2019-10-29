@@ -231,6 +231,11 @@ const style = StyleSheet.create({
     color: 'white',
     backgroundColor: 'gray',
     padding: 15,
+    borderStyle: 'solid',
+    borderTopColor: 'lightgray',
+    borderLeftColor: 'lightgray',
+    borderRightColor: 'black',
+    borderBottomColor: 'black',
   },
 
   error_popup_button_text: {
