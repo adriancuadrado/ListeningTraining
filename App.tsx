@@ -112,63 +112,7 @@ class App extends Component {
             disabled={!this.state.isWordLoaded}
             style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
             onPress={()=>{
-            // this.toggleWordVisibility();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // fetch(
-            //   'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
-            //   {
-            //     'method':'POST',
-            //     'mode':'cors'
-            //   }
-            // )
-            // .then((resp)=>resp.text())
-
-            // .catch(()=>{console.warn(":-(");});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            this.toggleWordVisibility();
           }}>
             <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
           </TouchableOpacity>
