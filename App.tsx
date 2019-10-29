@@ -177,7 +177,7 @@ class App extends Component {
                   onPress={()=>{
                     AsyncStorage.setItem('hideInstructions', 'true');
                     this.setState({
-                      areInstructionsHidden: false,
+                      areInstructionsHidden: true,
                     });
                   }}>
                   <Text style={[style.text, style.error_popup_button_text]}>
