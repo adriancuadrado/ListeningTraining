@@ -49,42 +49,41 @@ class App extends Component {
     this.loadRandomWord();
   }
 
-  loadRandomWord(){this.setState({isWordLoaded: true,});
-  //   this.setState({
-  //     isWordLoaded: false,
-  //   });
-  //   let promise : Promise<Response> = fetch(
-  //     'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
-  //     {
-  //       'method':'POST',
-  //       'mode':'cors'
-  //     }
-  //   );
-  //   promise
-  //   .then((resp)=>resp.text())
-  //   .then((word)=>{
-  //     this.setState({word});
-  //     let promise : Promise<Response> = fetch(`https://www.wordreference.com/es/translation.asp?tranword=${word}`);
-  //     promise
-  //     .then((resp)=>resp.text())
-  //     .then(html=>{
-  //       let audio = /<audio id='aud0' preload='none'><source src='(.*?)' type='audio\/mpeg'><\/audio>/.exec(html);
-  //       if(audio) {
-  //         Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
-  //         this.setState({isNetworkError: false});
-  //       } else {
-  //         //No siempre tiene wordreference audio para todas las palabras.
-  //         //Cuando se da el caso cargamos otra palabra al azar.
-  //         this.loadRandomWord();
-  //       }
-  //     });
-  //     promise.catch((ex) => {
-  //       this.setState({isNetworkError: true});
-  //     });
-  //   });
-  //   promise.catch((ex)=>{
-  //       this.setState({isNetworkError: true});
-  //   });
+  loadRandomWord(){
+    // this.setState({isWordLoaded: true,});
+    this.setState({
+      isWordLoaded: false,
+    });
+    fetch(
+      'http://watchout4snakes.com/wo4snakes/Random/RandomWord',
+      {
+        'method':'POST',
+        'mode':'cors'
+      }
+    )
+    .then((resp)=>resp.text())
+    .then((word)=>{
+      this.setState({word});
+      fetch(`https://www.wordreference.com/es/translation.asp?tranword=${word}`)
+      .then((resp)=>resp.text())
+      .then(html=>{
+        let audio = /<audio id='aud0' preload='none'><source src='(.*?)' type='audio\/mpeg'><\/audio>/.exec(html);
+        if(audio) {
+          Sound.setUrl(`https://www.wordreference.com${audio[1]}`);
+          this.setState({isNetworkError: false});
+        } else {
+          //No siempre tiene wordreference audio para todas las palabras.
+          //Cuando se da el caso cargamos otra palabra al azar.
+          this.loadRandomWord();
+        }
+      })
+      .catch((ex) => {
+        this.setState({isNetworkError: true});
+      });
+    })
+    .catch((ex)=>{
+        this.setState({isNetworkError: true});
+    });
   }
 
   toggleWordVisibility(){
