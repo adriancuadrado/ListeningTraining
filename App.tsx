@@ -23,6 +23,7 @@ class App extends Component {
       isWordLoaded: false,
       isReproducingAudio: false,
       isNetworkError: false,
+      areInstructionsVisible: true,
       // // // // // // // // // // // // // // isVertical: size.height > size.width
     };
     // // // // // // // // // // // // // Dimensions.addEventListener('change', ()=>{
@@ -156,9 +157,9 @@ class App extends Component {
                 </TouchableOpacity>
               </View>
             </>)}
-            
+
           {/* INSTRUCCIONES DE USO */}
-            {true && (<>
+            {this.state.areInstructionsVisible && (<>
               <View style={style.popup_shadow}/>
               <View style={[style.popup, style.info_popup]}>
                 <Text style={style.text}>
@@ -168,7 +169,9 @@ class App extends Component {
                 </Text>
                 <TouchableOpacity
                   style={[style.button, style.info_popup_button]}
-                  onPress={()=>{this.loadRandomWord()}}>
+                  onPress={()=>{this.setState({
+                    areInstructionsVisible: false,
+                  });}}>
                   <Text style={[style.text, style.error_popup_button_text]}>
                     Entendido
                   </Text>
