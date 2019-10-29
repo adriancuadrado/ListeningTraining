@@ -157,7 +157,7 @@ class App extends Component {
               </View>
             </>)}
           {/* INSTRUCCIONES DE USO */}
-          {false && (<>
+          {true && (<>
               <View style={style.popup_shadow}/>
               <View style={[style.popup, style.info_popup]}>
                 <Text style={style.text}>
