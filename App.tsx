@@ -106,49 +106,59 @@ class App extends Component {
     return (
       <>
         {/* Esta es la palabra que hay que adivinar */}
-        <View style={[style.layout, {flexGrow: 1}]}>
-          <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
-        </View>
+          <View style={[style.layout, {flexGrow: 1}]}>
+            <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
+          </View>
 
         {/* Boton MOSTRAR */}
-        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
-          this.toggleWordVisibility();
-        }}>
-          <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            disabled={!this.state.isWordLoaded}
+            style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
+            onPress={()=>{
+            this.toggleWordVisibility();
+          }}>
+            <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
+          </TouchableOpacity>
 
         {/* Boton ESCUCHAR */}
-        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
-          this.playSound();
-        }}>
-          <Text style={style.text}>ESCUCHAR</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            disabled={!this.state.isWordLoaded}
+            style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
+            onPress={()=>{
+              this.playSound();
+            }}>
+            <Text style={style.text}>ESCUCHAR</Text>
+          </TouchableOpacity>
 
         {/* Boton CAMBIAR */}
-        <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
-          this.loadRandomWord();
-          this.setState({isVisible: false});
-        }}>
-          <Text style={style.text}>CAMBIAR</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            disabled={!this.state.isWordLoaded}
+            style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
+            onPress={()=>{
+              this.loadRandomWord();
+              this.setState({isVisible: false});
+            }}>
+            <Text style={style.text}>CAMBIAR</Text>
+          </TouchableOpacity>
 
         {/* POPUPS */}
-        {/* FIXME: onPressReintentar no deberia de existir, deberia de usar el metodo desde aqui en vez de pasarlo */}
-        <>
-          <View style={style.popup_shadow}/>
-          <View style={[style.popup, style.error_popup]}>
-            <>
-              <Text style={style.text}>
-                Error de conexion{'\n\n'}
-                Por favor compruebe su conexion a internet{'\n'}
-              </Text>
-              <TouchableOpacity style={style.error_popup_button} onPress={()=>{this.loadRandomWord()}}>
-                <Text style={[style.text, style.error_popup_button_text]}>Reintentar</Text>
-              </TouchableOpacity>
-            </>
-          </View>
-        </>
-        {/* { this.state.errorMessage != '' && (<ErrorPopup message={this.state.errorMessage} onPressReintentar={()=>{this.loadRandomWord()}}/>) } */}
+          {/* ERROR DE CONEXION */}
+            {this.state.isNetworkError && (<>
+              <View style={style.popup_shadow}/>
+              <View style={[style.popup, style.error_popup]}>
+                <Text style={style.text}>
+                  Error de conexion{'\n\n'}
+                  Por favor compruebe su conexion a internet{'\n'}
+                </Text>
+                <TouchableOpacity
+                  style={style.error_popup_button}
+                  onPress={()=>{this.loadRandomWord()}}>
+                  <Text style={[style.text, style.error_popup_button_text]}>
+                    Reintentar
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </>)}
       </>
     );
   };
