@@ -229,7 +229,7 @@ const style = StyleSheet.create({
 
   error_popup_button: {
     color: 'white',
-    backgroundColor: 'gray',
+    backgroundColor: 'lightgray',
     padding: 15,
   },
 
