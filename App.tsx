@@ -197,7 +197,7 @@ const style = StyleSheet.create({
     borderLeftColor: 'lightblue',
     borderRightColor: 'black',
     borderBottomColor: 'black',
-    borderWidth: 1,
+    borderWidth: 2,
   },
 
   disabled: {
