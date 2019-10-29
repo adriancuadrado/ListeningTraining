@@ -140,12 +140,12 @@ class App extends Component {
 
         {/* POPUPS */}
           {/* ERROR DE CONEXION */}
-            {this.state.isNetworkError && (<>
+            {true && (<>
               <View style={style.popup_shadow}/>
               <View style={[style.popup, style.error_popup]}>
                 <Text style={style.text}>
                   Error de conexion{'\n\n'}
-                  Por favor compruebe su conexion a internet{'\n'}
+                  Por favor compruebe su conexion a internet{'\n\n'}
                 </Text>
                 <TouchableOpacity
                   style={[style.button, style.error_popup_button]}
