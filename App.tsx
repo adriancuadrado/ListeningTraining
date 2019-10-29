@@ -105,19 +105,26 @@ class App extends Component {
   render() {
     return (
       <>
+        {/* Esta es la palabra que hay que adivinar */}
         <View style={[style.layout, {flexGrow: 1}]}>
           <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
         </View>
+
+        {/* Boton MOSTRAR */}
         <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
           this.toggleWordVisibility();
         }}>
           <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
         </TouchableOpacity>
+
+        {/* Boton ESCUCHAR */}
         <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
           this.playSound();
         }}>
           <Text style={style.text}>ESCUCHAR</Text>
         </TouchableOpacity>
+
+        {/* Boton CAMBIAR */}
         <TouchableOpacity disabled={!this.state.isWordLoaded} style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]} onPress={()=>{
           this.loadRandomWord();
           this.setState({isVisible: false});
