@@ -21,7 +21,7 @@ class App extends Component {
     // // // // // // // // // // // // // // let size = Dimensions.get('screen');
     this.state = {
       word:'',
-      isVisible: false,
+      isWordVisible: false,
       isWordLoaded: false,
       isReproducingAudio: false,
       isNetworkError: false,
@@ -89,7 +89,7 @@ class App extends Component {
   toggleWordVisibility(){
     this.setState((state:any)=>{
       return {
-        isVisible: !state.isVisible
+        isWordVisible: !state.isWordVisible
       }
     });
   }
@@ -104,7 +104,7 @@ class App extends Component {
       <>
         {/* Esta es la palabra que hay que adivinar */}
           <View style={[style.layout, {flexGrow: 1}]}>
-            <Text style={style.word}>{this.state.isVisible && this.state.word}</Text>
+            <Text style={style.word}>{this.state.isWordVisible && this.state.word}</Text>
           </View>
 
         {/* Boton MOSTRAR */}
@@ -114,7 +114,7 @@ class App extends Component {
             onPress={()=>{
             this.toggleWordVisibility();
           }}>
-            <Text style={style.text}>{this.state.isVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
+            <Text style={style.text}>{this.state.isWordVisible ? 'OCULTAR' : 'MOSTRAR'}</Text>
           </TouchableOpacity>
 
         {/* Boton ESCUCHAR */}
@@ -133,7 +133,7 @@ class App extends Component {
             style={[style.layout, style.button, (this.state.isWordLoaded ? null : style.disabled)]}
             onPress={()=>{
               this.loadRandomWord();
-              this.setState({isVisible: false});
+              this.setState({isWordVisible: false});
             }}>
             <Text style={style.text}>CAMBIAR</Text>
           </TouchableOpacity>
